@@ -39,7 +39,10 @@ public class SingleUserTest extends BaseTest {
     public void RealizarBuscaUsuarioNaoEncontrado(SingleUserRequestDTO request) {
         getSingleService = new SingleUserService();
 
-        ValidatableResponse response = getSingleService.getUserId(request);
+        ValidatableResponse response =  getSingleService.getUserIdNotFound(request);
+
+        Assert.assertEquals(response.statusCode(404),HttpStatus.SC_NOT_FOUND);
+
 
 
     }
