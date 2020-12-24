@@ -1,0 +1,10 @@
+common\BaseTest.class
+dto\SingleUserRequestDTO.class
+dto\SingleUserRequestDTO$SingleUserRequestDTOBuilder.class
+enums\Enums.class
+dto\SingleUserResponseDTO.class
+datadriven\SingleUserProvider.class
+dto\SupportDTO.class
+caller\SingleUserService.class
+dto\DataDTO.class
+requestSpecification\GetSingleUserRequestSpecification.class

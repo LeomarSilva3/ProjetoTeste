@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: Functional.SingleUserTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.515 sec <<< FAILURE!
+RealizarBuscaUsuarioNaoEncontrado(Functional.SingleUserTest)  Time elapsed: 0.698 sec  <<< FAILURE!
+java.lang.AssertionError: expected [404] but found [io.restassured.internal.ValidatableResponseImpl@5b20706]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:563)
+	at Functional.SingleUserTest.RealizarBuscaUsuarioNaoEncontrado(SingleUserTest.java:44)
+
