@@ -13,4 +13,14 @@ public class SingleUserProvider {
         return new Object[]{user};
 
     }
+
+    @DataProvider(name = "userNotFound")
+    public Object[] userNotFound(){
+        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+                .userId(23)
+                .build();
+        return new Object[]{user};
+
+    }
+
 }

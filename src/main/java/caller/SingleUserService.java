@@ -23,4 +23,16 @@ public class SingleUserService extends BaseTest {
                             contentType(ContentType.JSON);
         }
 
+    public ValidatableResponse getUserIdNotFound(SingleUserRequestDTO request) {
+        return
+                given().
+                        spec(requestSpecification).
+                        pathParam("userId", request.getUserId()).
+                        when().
+                        get(SINGLE_USER.getUrl()).
+                        then().
+                        statusCode(HttpStatus.SC_NOT_FOUND).
+                        contentType(ContentType.JSON) ;
+    }
+
 }
