@@ -1,4 +1,4 @@
-package Functional;
+package functional;
 
 import caller.SingleUserService;
 import common.BaseTest;
@@ -6,14 +6,13 @@ import datadriven.SingleUserProvider;
 import dto.SingleUserRequestDTO;
 import dto.SingleUserResponseDTO;
 import io.restassured.response.ValidatableResponse;
-import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.apache.http.HttpStatus.SC_NOT_FOUND;
-import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
+import static io.restassured.RestAssured.*;
+
 
 public class SingleUserTest extends BaseTest {
     SingleUserService getSingleService;
@@ -41,10 +40,7 @@ public class SingleUserTest extends BaseTest {
 
         ValidatableResponse response =  getSingleService.getUserIdNotFound(request);
 
-        Assert.assertEquals(response.statusCode(404),HttpStatus.SC_NOT_FOUND);
-
-
-
+        response.statusCode(is(404));
     }
 
 }
