@@ -15,24 +15,25 @@ public class SingleUserService extends BaseTest {
             return
                     given().
                             spec(requestSpecification).
-                            pathParam("userId",request.getUserId()).
+                                pathParam("userId",request.getUserId()).
                             when().
-                            get(SINGLE_USER.getUrl()).
+                                get(SINGLE_USER.getUrl()).
                             then().
-                            statusCode(HttpStatus.SC_OK).
-                            contentType(ContentType.JSON);
+                                statusCode(HttpStatus.SC_OK).
+                                contentType(ContentType.JSON);
         }
+
 
     public ValidatableResponse getUserIdNotFound(SingleUserRequestDTO request) {
         return
                 given().
                         spec(requestSpecification).
-                        pathParam("userId", request.getUserId()).
+                            pathParam("userId", request.getUserId()).
                         when().
-                        get(SINGLE_USER.getUrl()).
+                            get(SINGLE_USER.getUrl()).
                         then().
-                        statusCode(HttpStatus.SC_NOT_FOUND).
-                        contentType(ContentType.JSON) ;
+                            statusCode(HttpStatus.SC_NOT_FOUND).
+                            contentType(ContentType.JSON) ;
     }
 
 }

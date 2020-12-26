@@ -9,13 +9,11 @@ import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static io.restassured.RestAssured.*;
 
 
 public class SingleUserTest extends BaseTest {
-    SingleUserService getSingleService;
+    private SingleUserService getSingleService;
 
     @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUser")
     public void RealizarBuscaUsuario(SingleUserRequestDTO request) {
