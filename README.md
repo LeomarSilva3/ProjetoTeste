@@ -36,7 +36,7 @@
 ### 1- Realize download do projeto .code-> Download.zip
 ### 2- Baixe e extraia o projetoTest-master.zip em um diretório de sua preferência
 ### 3- Abra o ProjetoTest-master em uma IDE de desenvolvimento de sua preferência
-### 4- instale as dependências dependências " mvn clean install "
+### 4- instale as dependências dependências executando o comando via termial:  " mvn clean install "
 
 
 
