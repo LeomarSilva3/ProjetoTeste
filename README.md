@@ -29,6 +29,11 @@
 ####   Valida a integridade dos endpoint's da API
 
 ## Instalação
-### 1- git clone  
+### Obs: Maven instalado Localmente https://maven.apache.org/download.cgi
+###      Java jdk  versão 11.xxx
+###      Git instalado https://git-scm.com/downloads
+
+### 1- git clone  https://github.com/LeomarSilva3/ProjetoTeste.git
+### 2- instalando dependências " mvn install "
 
 
