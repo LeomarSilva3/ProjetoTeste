@@ -26,5 +26,9 @@
 ####   Valida o comportamento real do recurso que foi desenvolvido 
 
 ### HelthCheck
+####   Valida a integridade dos endpoint's da API
+
+## Instalação
+### 1- git clone  
 
 
