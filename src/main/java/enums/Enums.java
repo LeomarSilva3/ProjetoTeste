@@ -9,7 +9,8 @@ public enum Enums {
 
     SINGLE_USER  ("api/users/{userId}"),
     BASE_PATH ("/"),
-    BASE_URI ("https://reqres.in/");
+    BASE_URI ("https://reqres.in"),
+    PATH_HEALTHCHECK ("actuator/health");
 
     private String url;
 }
