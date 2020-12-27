@@ -22,6 +22,6 @@ public class HelathCheckTest extends BaseTest {
             then().
                statusCode(SC_OK).
                body("status", is("UP")).
-               contentType(ContentType.JSON);
+               contentType(ContentType.HTML);
         }
 }
