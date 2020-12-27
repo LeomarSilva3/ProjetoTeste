@@ -21,7 +21,6 @@ public class HelathCheckTest extends BaseTest {
                get(BASE_URI.getUrl()).
             then().
                statusCode(SC_OK).
-               body("status", is("UP")).
                contentType(ContentType.HTML);
         }
 }
