@@ -33,7 +33,10 @@
 ###      Java jdk  versão 11.xxx
 ###      Git instalado https://git-scm.com/downloads
 
-### 1- git clone  https://github.com/LeomarSilva3/ProjetoTeste.git
-### 2- instalando dependências " mvn install "
+### 1- Realize download do projeto .code-> Download.zip
+### 2- Baixe e extraia o projetoTest-master.zip em um diretório de sua preferência
+### 3- instale as dependências dependências " mvn clean install "
+
+
 
 
