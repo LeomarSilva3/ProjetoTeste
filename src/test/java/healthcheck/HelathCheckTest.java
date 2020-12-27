@@ -18,7 +18,7 @@ public class HelathCheckTest extends BaseTest {
             given().
                spec(requestSpecification).
             when().
-               get(PATH_HEALTHCHECK.getUrl()).
+               get(BASE_URI.getUrl()).
             then().
                statusCode(SC_OK).
                body("status", is("UP")).
