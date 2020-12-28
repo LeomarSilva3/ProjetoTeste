@@ -42,11 +42,11 @@ public class SingleUserTest extends BaseTest {
     }
 
 
-    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUsersList")
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "usersFirstPage")
     public void VerificarUsuariosPrimeiraPagina(SingleUserRequestDTO request) {
         getSingleService = new SingleUserService();
 
-        SingleUserResponseDTO response = getSingleService.getUserFirstPage()
+        SingleUserResponseDTO response = getSingleService.getUserPerPage(request)
                 .extract()
                 .jsonPath()
                 .getObject("$", SingleUserResponseDTO.class);
@@ -62,11 +62,11 @@ public class SingleUserTest extends BaseTest {
 
     }
 
-    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUsersList")
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "usersSecondPage")
     public void VerificarUsuariosSegundaPagina(SingleUserRequestDTO request) {
         getSingleService = new SingleUserService();
 
-        SingleUserResponseDTO response = getSingleService.getUserSecondPage()
+        SingleUserResponseDTO response = getSingleService.getUserPerPage(request)
                 .extract()
                 .jsonPath()
                 .getObject("$", SingleUserResponseDTO.class);

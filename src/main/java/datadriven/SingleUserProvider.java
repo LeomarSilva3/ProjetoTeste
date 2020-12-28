@@ -23,9 +23,19 @@ public class SingleUserProvider {
 
     }
 
-    @DataProvider(name = "getUsersList")
-    public Object[] getUsersList(){
+    @DataProvider(name = "usersFirstPage")
+    public Object[] usersFirstPage(){
         SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+                .pageId(1)
+                .build();
+        return new Object[]{user};
+
+    }
+
+    @DataProvider(name = "usersSecondPage")
+    public Object[] usersSecondPage(){
+        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+                .pageId(2)
                 .build();
         return new Object[]{user};
 

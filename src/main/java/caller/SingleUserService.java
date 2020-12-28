@@ -14,50 +14,38 @@ public class SingleUserService extends BaseTest {
         public ValidatableResponse getUserId(SingleUserRequestDTO request){
             return
                 given().
-                        spec(requestSpecification).
+                    spec(requestSpecification).
                         pathParam("userId",request.getUserId()).
-                when().
+                    when().
                         get(SINGLE_USER.getUrl()).
-                then().
+                    then().
                         statusCode(HttpStatus.SC_OK).
                         contentType(ContentType.JSON);
         }
 
-
-    public ValidatableResponse getUserIdNotFound(SingleUserRequestDTO request) {
-        return
-            given().
-                    spec(requestSpecification).
-                    pathParam("userId", request.getUserId()).
-            when().
-                    get(SINGLE_USER.getUrl()).
-            then().
-                    statusCode(HttpStatus.SC_NOT_FOUND).
-                    contentType(ContentType.JSON) ;
-    }
-
-    public ValidatableResponse getUserFirstPage(){
-        return
-            given().
-                    spec(requestSpecification).
-            when().
-                    get(FIRST_PAGINATION_USER_LIST.getUrl()).
-            then().
-                    statusCode(HttpStatus.SC_OK).
-                    contentType(ContentType.JSON);
-    }
-
-    public ValidatableResponse getUserSecondPage(){
+    public ValidatableResponse getUserPerPage(SingleUserRequestDTO request){
         return
                 given().
-                        spec(requestSpecification).
-                        when().
-                        get(SECOND_PAGINATION_USER_LIST.getUrl()).
-                        then().
+                    spec(requestSpecification).
+                        pathParam("pageId",request.getPageId()).
+                    when().
+                        get(PAGINATION_USER.getUrl()).
+                    then().
                         statusCode(HttpStatus.SC_OK).
                         contentType(ContentType.JSON);
     }
 
 
+    public ValidatableResponse getUserIdNotFound(SingleUserRequestDTO request) {
+        return
+                given().
+                        spec(requestSpecification).
+                            pathParam("userId", request.getUserId()).
+                        when().
+                            get(SINGLE_USER.getUrl()).
+                        then().
+                            statusCode(HttpStatus.SC_NOT_FOUND).
+                            contentType(ContentType.JSON) ;
+    }
 
 }
