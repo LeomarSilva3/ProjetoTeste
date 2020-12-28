@@ -9,6 +9,7 @@ import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.Matchers.emptyArray;
 import static org.hamcrest.Matchers.is;
 
 
@@ -80,6 +81,24 @@ public class SingleUserTest extends BaseTest {
         Assert.assertEquals(response.getData().get(4).getFirst_name(),"George" );
         Assert.assertEquals(response.getData().get(5).getFirst_name(),"Rachel" );
 
+    }
+
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "pageNotFound")
+    public void PaginaNãoEncontrada(SingleUserRequestDTO request) {
+        getSingleService = new SingleUserService();
+
+        SingleUserResponseDTO response = getSingleService.getUserPerPage(request)
+                .extract()
+                .jsonPath()
+                .getObject("$", SingleUserResponseDTO.class);
+
+       Assert.assertEquals(response.getPage(), 3);
+       if(response.getData() != null) {
+           System.out.print("Objeto Data está vazio!!");
+       }
+       else{
+           System.out.print("Objeto Data contém valores!!");
+       }
     }
 
 }

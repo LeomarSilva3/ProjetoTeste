@@ -41,4 +41,13 @@ public class SingleUserProvider {
 
     }
 
+    @DataProvider(name = "pageNotFound")
+    public Object[] pageNotFound(){
+        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+                .pageId(3)
+                .build();
+        return new Object[]{user};
+
+    }
+
 }

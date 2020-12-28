@@ -48,4 +48,16 @@ public class SingleUserService extends BaseTest {
                             contentType(ContentType.JSON) ;
     }
 
+    public ValidatableResponse getPageNotFound(SingleUserRequestDTO request) {
+        return
+                given().
+                        spec(requestSpecification).
+                        pathParam("pageId", request.getPageId()).
+                        when().
+                        get(PAGINATION_USER.getUrl()).
+                        then().
+                        statusCode(HttpStatus.SC_OK).
+                        contentType(ContentType.JSON) ;
+    }
+
 }
