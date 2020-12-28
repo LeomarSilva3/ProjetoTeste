@@ -41,19 +41,46 @@ public class SingleUserTest extends BaseTest {
         response.statusCode(is(404));
     }
 
+
     @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUsersList")
-    public void RealizarBuscaTodosUsuarios(SingleUserRequestDTO request) {
+    public void VerificarUsuariosPrimeiraPagina(SingleUserRequestDTO request) {
         getSingleService = new SingleUserService();
 
-        SingleUserResponseDTO response = getSingleService.getUserAllUsers()
+        SingleUserResponseDTO response = getSingleService.getUserFirstPage()
                 .extract()
                 .jsonPath()
                 .getObject("$", SingleUserResponseDTO.class);
 
-//       Assert.assertEquals(response.getData().getId(), 2);
+        Assert.assertEquals(response.getPage(), 1);
+        Assert.assertEquals(response.getPer_page(), 6);
+        Assert.assertEquals(response.getData().get(0).getFirst_name(),"George" );
+        Assert.assertEquals(response.getData().get(1).getFirst_name(),"Janet" );
+        Assert.assertEquals(response.getData().get(2).getFirst_name(),"Emma" );
+        Assert.assertEquals(response.getData().get(3).getFirst_name(),"Eve" );
+        Assert.assertEquals(response.getData().get(4).getFirst_name(),"Charles" );
+        Assert.assertEquals(response.getData().get(5).getFirst_name(),"Tracey" );
 
     }
 
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUsersList")
+    public void VerificarUsuariosSegundaPagina(SingleUserRequestDTO request) {
+        getSingleService = new SingleUserService();
+
+        SingleUserResponseDTO response = getSingleService.getUserSecondPage()
+                .extract()
+                .jsonPath()
+                .getObject("$", SingleUserResponseDTO.class);
+
+        Assert.assertEquals(response.getPage(), 2);
+        Assert.assertEquals(response.getPer_page(), 6);
+        Assert.assertEquals(response.getData().get(0).getFirst_name(),"Michael" );
+        Assert.assertEquals(response.getData().get(1).getFirst_name(),"Lindsay" );
+        Assert.assertEquals(response.getData().get(2).getFirst_name(),"Tobias" );
+        Assert.assertEquals(response.getData().get(3).getFirst_name(),"Byron" );
+        Assert.assertEquals(response.getData().get(4).getFirst_name(),"George" );
+        Assert.assertEquals(response.getData().get(5).getFirst_name(),"Rachel" );
+
+    }
 
 }
 

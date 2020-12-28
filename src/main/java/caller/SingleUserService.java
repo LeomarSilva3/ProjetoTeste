@@ -36,15 +36,26 @@ public class SingleUserService extends BaseTest {
                     contentType(ContentType.JSON) ;
     }
 
-    public ValidatableResponse getUserAllUsers(){
+    public ValidatableResponse getUserFirstPage(){
         return
             given().
                     spec(requestSpecification).
             when().
-                    get(USER_LIST.getUrl()).
+                    get(FIRST_PAGINATION_USER_LIST.getUrl()).
             then().
                     statusCode(HttpStatus.SC_OK).
                     contentType(ContentType.JSON);
+    }
+
+    public ValidatableResponse getUserSecondPage(){
+        return
+                given().
+                        spec(requestSpecification).
+                        when().
+                        get(SECOND_PAGINATION_USER_LIST.getUrl()).
+                        then().
+                        statusCode(HttpStatus.SC_OK).
+                        contentType(ContentType.JSON);
     }
 
 

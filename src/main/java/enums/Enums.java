@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum Enums {
 
     SINGLE_USER  ("api/users/{userId}"),
-    USER_LIST  ("api/users/"),
+    FIRST_PAGINATION_USER_LIST  ("api/users?page=1"),
+    SECOND_PAGINATION_USER_LIST  ("api/users?page=2"),
     BASE_PATH ("/"),
     BASE_URI ("https://reqres.in"),
     PATH_HEALTHCHECK ("actuator/health");
