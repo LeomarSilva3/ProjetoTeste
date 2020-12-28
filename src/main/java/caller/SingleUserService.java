@@ -13,27 +13,40 @@ public class SingleUserService extends BaseTest {
 
         public ValidatableResponse getUserId(SingleUserRequestDTO request){
             return
-                    given().
-                            spec(requestSpecification).
-                                pathParam("userId",request.getUserId()).
-                            when().
-                                get(SINGLE_USER.getUrl()).
-                            then().
-                                statusCode(HttpStatus.SC_OK).
-                                contentType(ContentType.JSON);
+                given().
+                        spec(requestSpecification).
+                        pathParam("userId",request.getUserId()).
+                when().
+                        get(SINGLE_USER.getUrl()).
+                then().
+                        statusCode(HttpStatus.SC_OK).
+                        contentType(ContentType.JSON);
         }
 
 
     public ValidatableResponse getUserIdNotFound(SingleUserRequestDTO request) {
         return
-                given().
-                        spec(requestSpecification).
-                            pathParam("userId", request.getUserId()).
-                        when().
-                            get(SINGLE_USER.getUrl()).
-                        then().
-                            statusCode(HttpStatus.SC_NOT_FOUND).
-                            contentType(ContentType.JSON) ;
+            given().
+                    spec(requestSpecification).
+                    pathParam("userId", request.getUserId()).
+            when().
+                    get(SINGLE_USER.getUrl()).
+            then().
+                    statusCode(HttpStatus.SC_NOT_FOUND).
+                    contentType(ContentType.JSON) ;
     }
+
+    public ValidatableResponse getUserAllUsers(){
+        return
+            given().
+                    spec(requestSpecification).
+            when().
+                    get(USER_LIST.getUrl()).
+            then().
+                    statusCode(HttpStatus.SC_OK).
+                    contentType(ContentType.JSON);
+    }
+
+
 
 }

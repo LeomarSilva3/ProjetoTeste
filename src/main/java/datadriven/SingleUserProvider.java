@@ -23,4 +23,12 @@ public class SingleUserProvider {
 
     }
 
+    @DataProvider(name = "getUsersList")
+    public Object[] getUsersList(){
+        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+                .build();
+        return new Object[]{user};
+
+    }
+
 }

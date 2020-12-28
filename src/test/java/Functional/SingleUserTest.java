@@ -1,4 +1,4 @@
-package functional;
+package Functional;
 
 import caller.SingleUserService;
 import common.BaseTest;
@@ -24,11 +24,11 @@ public class SingleUserTest extends BaseTest {
                 .jsonPath()
                 .getObject("$", SingleUserResponseDTO.class);
 
-        Assert.assertEquals(response.getData().getId(), 2);
-        Assert.assertEquals(response.getData().getEmail(), "janet.weaver@reqres.in");
-        Assert.assertEquals(response.getData().getFirst_name(), "Janet");
-        Assert.assertEquals(response.getData().getLast_name(), "Weaver");
-        Assert.assertEquals(response.getData().getAvatar(), "https://reqres.in/img/faces/2-image.jpg");
+        Assert.assertEquals(response.getData().get(1).getId(), 2);
+        Assert.assertEquals(response.getData().get(1).getEmail(), "janet.weaver@reqres.in");
+        Assert.assertEquals(response.getData().get(1).getFirst_name(), "Janet");
+        Assert.assertEquals(response.getData().get(1).getLast_name(), "Weaver");
+        Assert.assertEquals(response.getData().get(1).getAvatar(), "https://reqres.in/img/faces/2-image.jpg");
     }
 
 
@@ -40,6 +40,20 @@ public class SingleUserTest extends BaseTest {
 
         response.statusCode(is(404));
     }
+
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUsersList")
+    public void RealizarBuscaTodosUsuarios(SingleUserRequestDTO request) {
+        getSingleService = new SingleUserService();
+
+        SingleUserResponseDTO response = getSingleService.getUserAllUsers()
+                .extract()
+                .jsonPath()
+                .getObject("$", SingleUserResponseDTO.class);
+
+//       Assert.assertEquals(response.getData().getId(), 2);
+
+    }
+
 
 }
 
