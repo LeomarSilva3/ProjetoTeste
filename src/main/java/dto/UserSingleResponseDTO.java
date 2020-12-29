@@ -10,12 +10,9 @@ import java.util.List;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 
-public class SingleUserResponseDTO {
-    private int page;
-    private int per_page;
-    private int total;
-    private int total_pages;
-    private List<DataDTO> data;
+public class UserSingleResponseDTO {
+    private DataDTO data;
     private SupportDTO support;
 
 }
+

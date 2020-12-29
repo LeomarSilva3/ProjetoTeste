@@ -2,7 +2,7 @@ package contract;
 
 import common.BaseTest;
 import datadriven.SingleUserProvider;
-import dto.SingleUserRequestDTO;
+import dto.UserRequestDTO;
 import org.testng.annotations.Test;
 import java.io.File;
 
@@ -14,7 +14,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 public class SingleUserContractTest extends BaseTest {
 
     @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUser")
-    public void validarContratoSingleUser(SingleUserRequestDTO request){
+    public void validarContratoSingleUser(UserRequestDTO request){
 
         given().
                 spec(requestSpecification).

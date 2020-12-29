@@ -1,7 +1,7 @@
 package caller;
 
 import common.BaseTest;
-import dto.SingleUserRequestDTO;
+import dto.UserRequestDTO;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 
 public class SingleUserService extends BaseTest {
 
-        public ValidatableResponse getUserId(SingleUserRequestDTO request){
+        public ValidatableResponse getUserId(UserRequestDTO request){
             return
                 given().
                     spec(requestSpecification).
@@ -23,7 +23,7 @@ public class SingleUserService extends BaseTest {
                         contentType(ContentType.JSON);
         }
 
-    public ValidatableResponse getUserPerPage(SingleUserRequestDTO request){
+    public ValidatableResponse getUserPerPage(UserRequestDTO request){
         return
                 given().
                     spec(requestSpecification).
@@ -36,7 +36,7 @@ public class SingleUserService extends BaseTest {
     }
 
 
-    public ValidatableResponse getUserIdNotFound(SingleUserRequestDTO request) {
+    public ValidatableResponse getUserIdNotFound(UserRequestDTO request) {
         return
                 given().
                         spec(requestSpecification).
@@ -48,7 +48,7 @@ public class SingleUserService extends BaseTest {
                             contentType(ContentType.JSON) ;
     }
 
-    public ValidatableResponse getPageNotFound(SingleUserRequestDTO request) {
+    public ValidatableResponse getPageNotFound(UserRequestDTO request) {
         return
                 given().
                         spec(requestSpecification).

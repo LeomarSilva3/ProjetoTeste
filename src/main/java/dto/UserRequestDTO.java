@@ -9,7 +9,7 @@ import lombok.Data;
 @Builder
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SingleUserRequestDTO {
+public class UserRequestDTO {
 
     private int userId;
     private int pageId;

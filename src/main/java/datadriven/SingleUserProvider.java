@@ -1,13 +1,13 @@
 package datadriven;
 
-import dto.SingleUserRequestDTO;
+import dto.UserRequestDTO;
 import org.testng.annotations.DataProvider;
 
 public class SingleUserProvider {
 
     @DataProvider(name = "getUser")
     public Object[] getUser(){
-        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+        UserRequestDTO user = UserRequestDTO.builder()
                 .userId(2)
                 .build();
         return new Object[]{user};
@@ -16,7 +16,7 @@ public class SingleUserProvider {
 
     @DataProvider(name = "userNotFound")
     public Object[] userNotFound(){
-        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+        UserRequestDTO user = UserRequestDTO.builder()
                 .userId(23)
                 .build();
         return new Object[]{user};
@@ -25,7 +25,7 @@ public class SingleUserProvider {
 
     @DataProvider(name = "usersFirstPage")
     public Object[] usersFirstPage(){
-        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+        UserRequestDTO user = UserRequestDTO.builder()
                 .pageId(1)
                 .build();
         return new Object[]{user};
@@ -34,7 +34,7 @@ public class SingleUserProvider {
 
     @DataProvider(name = "usersSecondPage")
     public Object[] usersSecondPage(){
-        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+        UserRequestDTO user = UserRequestDTO.builder()
                 .pageId(2)
                 .build();
         return new Object[]{user};
@@ -43,7 +43,7 @@ public class SingleUserProvider {
 
     @DataProvider(name = "pageNotFound")
     public Object[] pageNotFound(){
-        SingleUserRequestDTO user = SingleUserRequestDTO.builder()
+        UserRequestDTO user = UserRequestDTO.builder()
                 .pageId(3)
                 .build();
         return new Object[]{user};
