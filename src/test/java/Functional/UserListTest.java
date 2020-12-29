@@ -66,5 +66,42 @@ public class UserListTest extends BaseTest {
 
     }
 
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUser")
+    public void ValidarTotalPaginas (UserRequestDTO request){
+        getSingleService = new SingleUserService();
+
+        UserListResponseDTO response = getSingleService.getUserId(request)
+                .extract()
+                .jsonPath()
+                .getObject("$", UserListResponseDTO.class);
+
+        Assert.assertEquals(response.getTotal_pages(),2);
+    }
+
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUser")
+    public void ValidarTotalUsuarios (UserRequestDTO request){
+        getSingleService = new SingleUserService();
+
+        UserListResponseDTO response = getSingleService.getUserId(request)
+                .extract()
+                .jsonPath()
+                .getObject("$", UserListResponseDTO.class);
+
+        Assert.assertEquals(response.getTotal(), 12);
+    }
+
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUser")
+    public void ValidarTotalUsuariosPorPagina (UserRequestDTO request){
+        getSingleService = new SingleUserService();
+
+        UserListResponseDTO response = getSingleService.getUserId(request)
+                .extract()
+                .jsonPath()
+                .getObject("$", UserListResponseDTO.class);
+
+        Assert.assertEquals(response.getTotal_pages(), 6);
+    }
+
+
 }
 
