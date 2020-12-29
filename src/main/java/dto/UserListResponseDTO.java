@@ -15,7 +15,7 @@ public class UserListResponseDTO {
     private int per_page;
     private int total;
     private int total_pages;
-    private List<DataDTO> data;
+    private List<UserDataDTO> data;
     private SupportDTO support;
 
 }
