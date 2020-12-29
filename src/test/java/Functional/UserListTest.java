@@ -62,13 +62,8 @@ public class UserListTest extends BaseTest {
                 .jsonPath()
                 .getObject("$", UserListResponseDTO.class);
 
-       Assert.assertEquals(response.getPage(), 3);
-       if(response.getData() != null) {
-           System.out.print("Objeto Data está vazio!!");
-       }
-       else{
-           System.out.print("Objeto Data contém valores!!");
-       }
+        response.getData().isEmpty();
+
     }
 
 }
