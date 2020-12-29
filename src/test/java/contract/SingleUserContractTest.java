@@ -2,7 +2,7 @@ package contract;
 
 import common.BaseTest;
 import datadriven.SingleUserProvider;
-import dto.UserRequestDTO;
+import dto.user.UserRequestDTO;
 import org.testng.annotations.Test;
 import java.io.File;
 

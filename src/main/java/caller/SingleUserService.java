@@ -1,7 +1,7 @@
 package caller;
 
 import common.BaseTest;
-import dto.UserRequestDTO;
+import dto.user.UserRequestDTO;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;

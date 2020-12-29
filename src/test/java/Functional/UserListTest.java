@@ -3,8 +3,8 @@ package Functional;
 import caller.SingleUserService;
 import common.BaseTest;
 import datadriven.SingleUserProvider;
-import dto.UserRequestDTO;
-import dto.UserListResponseDTO;
+import dto.user.UserRequestDTO;
+import dto.user.UserListResponseDTO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

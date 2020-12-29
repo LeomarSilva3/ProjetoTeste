@@ -1,4 +1,4 @@
-package dto;
+package dto.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -11,6 +11,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class UserListResponseDTO {
+
     private int page;
     private int per_page;
     private int total;

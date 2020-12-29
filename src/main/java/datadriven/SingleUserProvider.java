@@ -1,6 +1,6 @@
 package datadriven;
 
-import dto.UserRequestDTO;
+import dto.user.UserRequestDTO;
 import org.testng.annotations.DataProvider;
 
 public class SingleUserProvider {
