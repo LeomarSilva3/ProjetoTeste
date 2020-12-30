@@ -4,6 +4,9 @@ import caller.CreateUserService;
 import common.BaseTest;
 import datadriven.CreateUserProvider;
 import dto.createUser.UserCreateResponseDTO;
+import io.restassured.response.ValidatableResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.protocol.HTTP;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,6 +17,8 @@ public class UserCreateTest extends BaseTest{
     public void criarUsuarioSucesso(String body, UserCreateResponseDTO userCreate){
         postCreateUserService = new CreateUserService();
 
+        ValidatableResponse validate = postCreateUserService.postUser(body);
+
         UserCreateResponseDTO response = postCreateUserService.postUser(body)
                 .extract()
                 .jsonPath()
@@ -21,7 +26,7 @@ public class UserCreateTest extends BaseTest{
 
        Assert.assertEquals(response.getName(), userCreate.getName());
        Assert.assertEquals(response.getJob(), userCreate.getJob());
-
+       validate.statusCode(201);
 
 
     }
