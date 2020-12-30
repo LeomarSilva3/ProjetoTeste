@@ -66,11 +66,11 @@ public class UserListTest extends BaseTest {
 
     }
 
-    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUser")
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "usersFirstPage")
     public void ValidarTotalPaginas (UserRequestDTO request){
         getSingleService = new SingleUserService();
 
-        UserListResponseDTO response = getSingleService.getUserId(request)
+        UserListResponseDTO response = getSingleService.getUserPerPage(request)
                 .extract()
                 .jsonPath()
                 .getObject("$", UserListResponseDTO.class);
@@ -78,11 +78,11 @@ public class UserListTest extends BaseTest {
         Assert.assertEquals(response.getTotal_pages(),2);
     }
 
-    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUser")
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "usersFirstPage")
     public void ValidarTotalUsuarios (UserRequestDTO request){
         getSingleService = new SingleUserService();
 
-        UserListResponseDTO response = getSingleService.getUserId(request)
+        UserListResponseDTO response = getSingleService.getUserPerPage(request)
                 .extract()
                 .jsonPath()
                 .getObject("$", UserListResponseDTO.class);
@@ -90,16 +90,16 @@ public class UserListTest extends BaseTest {
         Assert.assertEquals(response.getTotal(), 12);
     }
 
-    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "getUser")
+    @Test(dataProviderClass = SingleUserProvider.class, dataProvider = "usersFirstPage")
     public void ValidarTotalUsuariosPorPagina (UserRequestDTO request){
         getSingleService = new SingleUserService();
 
-        UserListResponseDTO response = getSingleService.getUserId(request)
+        UserListResponseDTO response = getSingleService.getUserPerPage(request)
                 .extract()
                 .jsonPath()
                 .getObject("$", UserListResponseDTO.class);
 
-        Assert.assertEquals(response.getTotal_pages(), 6);
+        Assert.assertEquals(response.getTotal_pages(), 2);
     }
 
 
