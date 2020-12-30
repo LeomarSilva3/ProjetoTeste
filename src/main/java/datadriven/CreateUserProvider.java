@@ -14,8 +14,8 @@ public class CreateUserProvider {
         String body = "{\"name\": \"morpheus\",\n" +
                       " \"job\": \"leader\"}";
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String today = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"))
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME.ofPattern("YYYY-MM-DDEhh:mm:ss");
+        String today = LocalDateTime.now(ZoneId.of("UTC-3"))
                 .format(formatter);
 
         UserCreateResponseDTO userCreate = UserCreateResponseDTO.builder()

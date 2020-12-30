@@ -3,15 +3,9 @@ package Functional;
 import caller.CreateUserService;
 import common.BaseTest;
 import datadriven.CreateUserProvider;
-import datadriven.SingleUserProvider;
 import dto.createUser.UserCreateResponseDTO;
-import dto.user.UserRequestDTO;
-import dto.user.UserSingleResponseDTO;
-import io.restassured.response.ValidatableResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import static org.hamcrest.Matchers.is;
 
 public class UserCreateTest extends BaseTest{
     private CreateUserService postCreateUserService;
@@ -27,6 +21,8 @@ public class UserCreateTest extends BaseTest{
 
        Assert.assertEquals(response.getName(), userCreate.getName());
        Assert.assertEquals(response.getJob(), userCreate.getJob());
+
+
 
     }
 }
