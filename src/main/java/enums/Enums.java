@@ -11,7 +11,8 @@ public enum Enums {
     PAGINATION_USER  ("api/users?page={pageId}"),
     BASE_PATH ("/"),
     BASE_URI ("https://reqres.in"),
-    PATH_HEALTHCHECK ("actuator/health");
+    PATH_HEALTHCHECK ("actuator/health"),
+    CREATE_USER ("api/users/");
 
     private String url;
 }
