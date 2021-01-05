@@ -1,4 +1,4 @@
-# Avaliação Técnica de Automação de Test-API
+# Automação de Test-API
 
 ## Padrões de Projeto
 
