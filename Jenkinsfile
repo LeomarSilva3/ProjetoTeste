@@ -7,9 +7,11 @@ pipeline {
                 bat 'mvn clean install -DskipTests=true'
             }
         }
-        stage('Test'){
+        stage('Health Checked'){
             steps{
-                bat 'mvn test'
+                dir('contract'){
+                    bat 'mvn test'
+                }
             }
         }
     }
