@@ -10,7 +10,7 @@ pipeline {
         stage('Health Checked'){
             steps{
                 dir('contract'){
-                    bat 'mvn test'
+                    bat 'mvn test C:\Users\bleom\.jenkins\workspace\TestAPI_Pipeline\src\test\java\healthcheck.HelathCheckTest.java'
                 }
             }
         }
