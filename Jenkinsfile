@@ -9,18 +9,23 @@ pipeline {
         }
         stage('Health Checked'){
             steps{
-              bat 'mvn test -Dtest=healthcheck.HelathCheckTest.java'
+              bat 'mvn test -DTests=healthcheck'
             }
         }
         stage('Contract'){
             steps{
-              bat 'mvn test -Dtest=contract.SingleUserContractTest.java'
+              bat 'mvn test -DTests=contract'
             }
         }
         stage('Functional'){
             steps{
               bat 'mvn test -DTests=Functional'
             }
+        }
+    }
+    post{
+        always{
+            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
         }
     }
 }
