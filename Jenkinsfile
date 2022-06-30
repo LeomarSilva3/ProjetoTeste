@@ -12,5 +12,10 @@ pipeline {
               bat 'mvn test -Dtest=healthcheck.HelathCheckTest.java'
             }
         }
+        stage('Contract'){
+            steps{
+              bat 'mvn test -Dtest=contract.SingleUserContractTest.java'
+            }
+        }
     }
 }
