@@ -10,7 +10,7 @@ pipeline {
         stage('Health Checked'){
             steps{
                 dir('contract'){
-                    bat 'mvn test mvn test -Dtest=healthcheck.HelathCheckTest.java'
+                    bat 'mvn test -Dtest=healthcheck.HelathCheckTest.java'
                 }
             }
         }
