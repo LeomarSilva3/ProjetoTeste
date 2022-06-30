@@ -17,5 +17,10 @@ pipeline {
               bat 'mvn test -Dtest=contract.SingleUserContractTest.java'
             }
         }
+        stage('Functional'){
+            steps{
+              bat 'mvn test -DTests=Functional'
+            }
+        }
     }
 }
