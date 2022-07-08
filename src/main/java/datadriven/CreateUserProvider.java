@@ -26,7 +26,7 @@ public class CreateUserProvider {
 
 
         return new Object[][]{
-                    {userCreate}
+                    {body,userCreate}
                 };
 
     }
