@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 public class CreateUserProvider {
 
     @DataProvider(name = "createUser")
-    public Object[][] createUser(){
+    public Object[] createUser(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-ddEhh:mm:ss");
         String today = LocalDateTime.now(ZoneId.of("UTC-3"))
                 .format(formatter);
@@ -21,12 +21,12 @@ public class CreateUserProvider {
                 .createdAt(today)
                 .build();
 
-        String body = "{\"name\": \""+userCreate.getName()+"\",\n" +
-                      " \"job\": \""+userCreate.getJob()+"\"}";
+//        String body = "{\"name\": \""+userCreate.getName()+"\",\n" +
+//                      " \"job\": \""+userCreate.getJob()+"\"}";
 
 
         return new Object[][]{
-                    {body, userCreate}
+                    {userCreate}
                 };
 
     }
