@@ -11,21 +11,22 @@ public class CreateUserProvider {
 
     @DataProvider(name = "createUser")
     public Object[][] createUser(){
-        String body = "{\"name\": \"morpheus\",\n" +
-                      " \"job\": \"leader\"}";
-
-        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME.ofPattern("YYYY-MM-DDEhh:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-ddEhh:mm:ss");
         String today = LocalDateTime.now(ZoneId.of("UTC-3"))
                 .format(formatter);
 
         UserCreateResponseDTO userCreate = UserCreateResponseDTO.builder()
-                .name("morpheus")
+                .name("Leomar")
                 .job("leader")
                 .createdAt(today)
                 .build();
 
+        String body = "{\"name\": \""+userCreate.getName()+"\",\n" +
+                      " \"job\": \""+userCreate.getJob()+"\"}";
+
+
         return new Object[][]{
-                    {body,userCreate}
+                    {body, userCreate}
                 };
 
     }
