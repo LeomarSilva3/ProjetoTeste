@@ -21,8 +21,8 @@ public class CreateUserProvider {
                 .createdAt(today)
                 .build();
 
-//        String body = "{\"name\": \""+userCreate.getName()+"\",\n" +
-//                      " \"job\": \""+userCreate.getJob()+"\"}";
+        String body = "{\"name\": \""+userCreate.getName()+"\",\n" +
+                      " \"job\": \""+userCreate.getJob()+"\"}";
 
 
         return new Object[][]{
