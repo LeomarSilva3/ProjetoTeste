@@ -9,17 +9,17 @@ pipeline {
         }
         stage('Health Checked'){
             steps{
-              bat 'mvn test -DTests=healthcheck'
+              bat 'mvn test -Dtest="HelathCheckTest"'
             }
         }
         stage('Contract'){
             steps{
-              bat 'mvn test -DTests=contract'
+              bat 'mvn test -Dtest="SingleUserContractTest"'
             }
         }
         stage('Functional'){
             steps{
-              bat 'mvn test -DTests=Functional'
+              bat 'mvn test -Dtest="UserCreateTest,UserListTest,UserSingleTest"'
             }
         }
     }
