@@ -22,6 +22,7 @@ jobs:
        
   health-checked:
      runs-on: ubuntu-latest
+     needs: build
      steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -31,5 +32,5 @@ jobs:
          distribution: 'temurin'
          cache: maven
       - name: Health Checked
-        run: mvn test -DTests=healthcheck    
+        run: bat mvn test -DTests=healthcheck    
        
