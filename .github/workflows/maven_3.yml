@@ -32,5 +32,5 @@ jobs:
          distribution: 'temurin'
          cache: maven
       - name: Health Checked
-        run: bash mvn test -DTests=healthcheck    
+        run: mvn test -DTests=healthcheck    
        
