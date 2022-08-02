@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build
-      run: mvn -B package --file pom.xml
+      run: mvn compile
