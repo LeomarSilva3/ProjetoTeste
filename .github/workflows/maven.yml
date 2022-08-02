@@ -16,9 +16,9 @@ jobs:
       
   Health-Checked:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: dev-test
     needs: build
     steps:
     - uses: actions/checkout@v3
-    - name: Build
+    - name: Health-Checked
       run: mvn test -DTests=healthcheck
