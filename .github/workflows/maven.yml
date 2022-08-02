@@ -10,15 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: mvn clean install -DskipTests=true
+     - uses: actions/checkout@v3
+     - name: Build
+       run: mvn clean install -DskipTests=true
       
-  Health-Checked:
+  health-checked:
     runs-on: ubuntu-latest
     environment: dev-test
     needs: build
     steps:
-    - uses: actions/checkout@v3
-    - name: Health-Checked
-      run: mvn test -DTests=healthcheck
+     - name: Health-Checked
+       run: mvn test -DTests=healthcheck
