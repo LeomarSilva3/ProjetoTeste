@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Build
-       run: mvn clean install -DskipTests=true
+       run: mvn package pom.xml
       
   health-checked:
     runs-on: ubuntu-latest
